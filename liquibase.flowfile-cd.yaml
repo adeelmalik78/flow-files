@@ -1,0 +1,54 @@
+##########           LIQUIBASE FLOWFILE                ##########
+##########  learn more http://docs.liquibase.com/flow  ##########
+
+## Run this file by executing "liquibase flow" or "liquibase flow --flow-file=liquibase.flowfile.yaml"
+
+# globalVariables:
+  # SCHEMA: DEV
+  # BYPASS_LIQUIBASE_CHECKS: bypass
+
+## Note: Any command which fails in any stage below result in the command stopping, and endStage being run.
+## A flow file can have one or more stages, each with multiple "actions", 
+## or your flow file can have multiple stages with fewer actions in each stage.
+stages:
+
+  Status Database:
+    actions:
+      - type: liquibase
+        command: status
+        cmdArgs: { status: "verbose" }
+
+  Run Quality Checks:
+    actions:
+      - type: liquibase
+        command: flow
+        cmdArgs: { flow-file: "liquibase.flowfile-checksrun.yaml" }
+  
+  # Run Quality Checks:
+  #   actions:
+  #     - type: shell
+  #       command: |
+  #         if [[ ${BYPASS_LIQUIBASE_CHECKS} == "bypass" ]] 
+  #         then
+  #           echo BYPASS_LIQUIBASE_CHECKS=true
+  #           liquibase checks run || true
+  #         else
+  #           echo BYPASS_LIQUIBASE_CHECKS=false
+  #           liquibase checks run
+  #         fi
+
+  DB_Requested_Operation:
+    actions:
+      - type: liquibase
+        command: flow
+        cmdArgs: { flow-file: "${COMMAND_FLOW_FILE}" }
+
+
+## The endStage ALWAYS RUNS. 
+## So put actions here which you desire to perform whether previous stages' actions succeed or fail.
+## If you do not want any actions to ALWAYS RUN, simply delete the endStage from your flow file.
+endStage:
+  actions:
+    - type: liquibase
+      command: history
+

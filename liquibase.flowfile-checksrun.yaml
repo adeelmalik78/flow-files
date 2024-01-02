@@ -1,0 +1,13 @@
+
+## A flow file can have one or more stages, each with multiple "actions", 
+## or your flow file can have multiple stages with fewer actions in each stage.
+stages:
+
+  DB checks run:
+    actions:
+      - type: liquibase
+        if: "${BYPASS_LIQUIBASE_CHECKS} != bypass" 
+        command: checks run
+        cmdArgs: {  checks-scope: "changelog",
+                    checks-settings-file: "liquibase.checks-settings.conf"
+                  }

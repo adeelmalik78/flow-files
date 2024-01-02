@@ -1,0 +1,13 @@
+
+## A flow file can have one or more stages, each with multiple "actions", 
+## or your flow file can have multiple stages with fewer actions in each stage.
+stages:
+
+  DB update:
+    actions:
+      - type: liquibase
+        command: tag
+
+      - type: liquibase
+        command: update
+
