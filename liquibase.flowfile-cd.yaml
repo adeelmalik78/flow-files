@@ -43,6 +43,13 @@ stages:
         command: flow
         cmdArgs: { flow-file: "${COMMAND_FLOW_FILE}" }
 
+  # DB_Requested_Operation:
+  #   actions:
+  #     - type: liquibase
+  #       command: $LBCOMMAND
+  #       cmdArgs: { $CMDARGS }
+  #       globalArgs: { $GLOBALARGS }
+
 
 ## The endStage ALWAYS RUNS. 
 ## So put actions here which you desire to perform whether previous stages' actions succeed or fail.
@@ -51,4 +58,6 @@ endStage:
   actions:
     - type: liquibase
       command: history
-
+    # - type: shell
+    #   command: |
+    #       echo "Use this portion of the flow file to push reports to artifacts and logs to your observability tool."

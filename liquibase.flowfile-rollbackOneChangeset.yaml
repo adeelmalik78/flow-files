@@ -1,6 +1,11 @@
 
 ## A flow file can have one or more stages, each with multiple "actions", 
 ## or your flow file can have multiple stages with fewer actions in each stage.
+
+
+# Needs "LIQUIBASE_COMMAND_CHANGESET_ID" set to "<changeset ID>"
+# Needs "LIQUIBASE_COMMAND_CHANGESET_AUTHOR" set to "<changeset author>"
+# Needs "LIQUIBASE_COMMAND_CHANGESET_PATH" set to "<changelog path>", e.g. "changelog.xml"
 stages:
 
   DB rollbackOneChangeset:
