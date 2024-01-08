@@ -9,5 +9,5 @@ stages:
         if: "${BYPASS_LIQUIBASE_CHECKS} != bypass" 
         command: checks run
         cmdArgs: {  checks-scope: "changelog",
-                    checks-settings-file: "liquibase.checks-settings.conf"
+                    checks-settings-file: "checks/liquibase.checks-settings.conf"
                   }

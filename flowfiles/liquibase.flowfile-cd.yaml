@@ -22,7 +22,7 @@ stages:
     actions:
       - type: liquibase
         command: flow
-        cmdArgs: { flow-file: "liquibase.flowfile-checksrun.yaml" }
+        cmdArgs: { flow-file: "flowfiles/liquibase.flowfile-checksrun.yaml" }
   
   # Run Quality Checks:
   #   actions:
