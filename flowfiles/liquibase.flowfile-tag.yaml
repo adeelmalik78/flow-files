@@ -8,9 +8,6 @@ stages:
 
   DB update:
     actions:
-      # - type: liquibase
-      #   command: tag
-
       - type: liquibase
-        command: update
+        command: tag
 

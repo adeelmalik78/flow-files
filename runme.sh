@@ -5,12 +5,15 @@ export COMMAND_FLOW_FILE="flowfiles/liquibase.flowfile-${LBCOMMAND}.yaml"
 export BYPASS_LIQUIBASE_CHECKS="$2"
 
 # Setting Liquibase command args
-export LIQUIBASE_COMMAND_TAG=$TAG
+export LIQUIBASE_COMMAND_TAG="$TAG-Adeel2"
 export LIQUIBASE_COMMAND_CONTEXT_FILTER="myschema"
 export LIQUIBASE_COMMAND_CHANGESET_ID="001"
 export LIQUIBASE_COMMAND_CHANGESET_AUTHOR="adeel"
 export LIQUIBASE_COMMAND_CHANGESET_PATH="changelog.xml"
 export LIQUIBASE_COMMAND_CHECKS_SCOPE="changelog,database"
+
+# Seetings args for generateChangelog command
+export LIQUIBASE_OUTPUT_FILE=newchangelog.xml
 
 # Setting liquibase global args
 export LIQUIBASE_LIQUIBASE_SCHEMA_NAME="LIQUIBASE_USER"

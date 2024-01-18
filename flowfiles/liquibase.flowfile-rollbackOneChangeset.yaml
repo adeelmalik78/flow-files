@@ -11,5 +11,8 @@ stages:
   DB rollbackOneChangeset:
     actions:
       - type: liquibase
+        command: rollbackOneChangeset-sql
+        cmdArgs: { force: "true" }
+      - type: liquibase
         command: rollbackOneChangeset
         cmdArgs: { force: "true" }
