@@ -6,7 +6,7 @@
 # Optional "LIQUIBASE_COMMAND_LABELS" set to "<labels>"
 stages:
 
-  DB updateTestingRollbacl:
+  DB updateTestingRollback:
     actions:
       - type: liquibase
         command: updateTestingRollback
