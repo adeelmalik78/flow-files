@@ -1,0 +1,12 @@
+
+## A flow file can have one or more stages, each with multiple "actions", 
+## or your flow file can have multiple stages with fewer actions in each stage.
+
+# Optional "LIQUIBASE_COMMAND_TAG" set to "<tag>"
+stages:
+
+  DB tag:
+    actions:
+      - type: liquibase
+        command: tag
+        cmdArgs: { $COMMAND_PARAMS }

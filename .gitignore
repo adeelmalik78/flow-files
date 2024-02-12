@@ -1,3 +1,5 @@
 **/liquibase.properties
 **/commands.sh
 reports
+COMMAND_PARAMS.txt
+

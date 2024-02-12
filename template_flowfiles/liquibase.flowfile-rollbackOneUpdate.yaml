@@ -9,8 +9,8 @@ stages:
       - type: liquibase
         if: "${LBCOMMAND} == rollbackOneUpdateSql"
         command: rollbackOneUpdateSql
-        cmdArgs: { force: "true" }
+        cmdArgs: { $COMMAND_PARAMS }
       - type: liquibase
         if: "${LBCOMMAND} == rollbackOneUpdate"
         command: rollbackOneUpdate
-        cmdArgs: { force: "true" }
+        cmdArgs: { $COMMAND_PARAMS }

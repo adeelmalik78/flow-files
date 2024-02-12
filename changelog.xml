@@ -8,15 +8,26 @@
     http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd ">
 
 
+  <!-- <changeSet  author="amalik"  id="02092024">
+      <tagDatabase  tag="02092024"/>
+  </changeSet> -->
+
+  <!-- <includeAll path="release/path" /> -->
+
   <changeSet author="adeel" id="001" runOnChange="true">
       <sqlFile endDelimiter="/"
           path="main/PLS/PKG_GET_ACCT_pks.sql"
           relativeToChangelogFile="true"
           splitStatements="false"
           stripComments="true"/>
-      <rollback>
+        <rollback>
           <sql>empty</sql>
-          </rollback>
+          <!-- <sqlFile endDelimiter="/"
+            path="main/PLS/PKG_GET_ACCT_pks-rollback.sql"
+            relativeToChangelogFile="true"
+            splitStatements="false"
+            stripComments="true"/> -->
+        </rollback>
   </changeSet>
 
 

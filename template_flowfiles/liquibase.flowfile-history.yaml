@@ -1,12 +1,10 @@
 
 ## A flow file can have one or more stages, each with multiple "actions", 
 ## or your flow file can have multiple stages with fewer actions in each stage.
-
-# Needs "LIQUIBASE_COMMAND_TAG" set to "<tagName>"
 stages:
 
-  DB rollback:
+  DB history:
     actions:
       - type: liquibase
-        if: "${LBCOMMAND} == rollback"
-        command: rollback
+        command: history
+        cmdArgs: { $COMMAND_PARAMS }

@@ -10,6 +10,7 @@ stages:
     actions:
       - type: liquibase
         command: generateChangelog
+        cmdArgs: { $COMMAND_PARAMS }
       -type: shell
         command: "cat newchangelog.xml"
 

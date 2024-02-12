@@ -12,7 +12,7 @@ stages:
     actions:
       - type: liquibase
         command: rollbackOneChangeset-sql
-        cmdArgs: { force: "true" }
+        cmdArgs: { $COMMAND_PARAMS }
       - type: liquibase
         command: rollbackOneChangeset
-        cmdArgs: { force: "true" }
+        cmdArgs: { $COMMAND_PARAMS }
